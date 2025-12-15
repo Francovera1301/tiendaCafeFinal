@@ -17,7 +17,7 @@ app.use(session({
 app.use(cors());
 app.use(express.json());
 
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, "public")));
 
 //app.use("/public", express.static(path.join(__dirname, "public")));
 //app.use("/uploads", express.static(path.join(__dirname, "uploads")));

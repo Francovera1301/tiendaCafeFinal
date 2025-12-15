@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Panel de Administración - Tienda de Café</title>
-  <link rel="stylesheet" href="estilos.css" />
-  <style>
     body {
       background-color: #1c1b19;
       color: #f5f5f5;
@@ -76,24 +68,3 @@
     .botones button.eliminar {
       background-color: #c0392b;
     }
-  </style>
-</head>
-<body>
-  <h1>Panel de Administración</h1>
-
-  <form id="formProducto" enctype="multipart/form-data">
-    <h3>Agregar / Editar Producto</h3>
-    <input type="hidden" id="productoId" />
-    <input type="text" id="nombre" placeholder="Nombre del producto" required />
-    <input type="number" id="precio" placeholder="Precio" required />
-    <input type="file" id="imagen" name="imagen" accept="image/*" />
-    <button type="submit">Guardar</button>
-  </form>
-
-
-  <h2 style="text-align:center; margin-top: 40px;">Lista de Productos</h2>
-  <div class="productos-container" id="productosContainer"></div>
-
-  <script src="admin.js"></script>
-</body>
-</html>
