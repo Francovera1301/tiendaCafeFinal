@@ -1,0 +1,145 @@
+/* ---- CONTENEDOR GENERAL DEL MAIN ---- */
+.contact-main {
+  padding: 50px 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+}
+
+/* ---- CONTENEDOR DE DOS COLUMNAS ---- */
+.contact-main .contact-container {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 60px !important;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---- COLUMNAS ---- */
+.contact-main .left-side {
+  width: 60% !important;
+}
+
+.contact-main .right-side {
+  width: 30% !important;
+}
+
+/* ---- FORMULARIO ---- */
+.contact-main form label {
+  display: block !important;
+  margin: 12px 0 5px !important;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.contact-main form input,
+.contact-main form textarea {
+  display: block !important;
+  width: 100% !important;
+  border: 1px solid #d3d3d3 !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+  border-radius: 0 !important;
+  font-size: 14px;
+}
+
+.contact-main form textarea {
+  height: 160px !important;
+  resize: none !important;
+}
+
+.contact-main form button {
+  margin-top: 18px;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 35px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-main form button:hover {
+  background: #444;
+}
+
+/* ---- REDES ---- */
+/* Ajuste del tamaño de los iconos de redes */
+.contact-main .social-list a img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+/* Opcional: si querés que queden alineados verticalmente y prolijos */
+.contact-main .social-list a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.contact-main .right-side h2 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.contact-main .social-list a {
+  display: block !important;
+  margin-bottom: 25px !important;
+  font-size: 16px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.contact-main .social-list a:hover {
+  text-decoration: underline;
+}
+
+/* ---- RESPONSIVE (CELULAR) ---- */
+@media (max-width: 768px) {
+  .contact-main .contact-container {
+    flex-direction: column !important;
+    gap: 40px !important;
+  }
+
+  .contact-main .left-side,
+  .contact-main .right-side {
+    width: 100% !important;
+  }
+}
+
+/* ---- CORRECCIÓN DE COLOR DE TEXTO ---- */
+.contact-main,
+.contact-main * {
+  color: #000 !important;
+}
+
+/* Texto dentro de inputs */
+.contact-main form input,
+.contact-main form textarea {
+  color: #000 !important;
+  background: #fff !important;
+}
+
+/* Placeholder también visible */
+.contact-main form input::placeholder,
+.contact-main form textarea::placeholder {
+  color: #555 !important;
+}
+
+.contact-main button {
+  background-color: #d8c3a5 !important; /* beige suave */
+  border: none;
+  padding: 10px 22px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #000 !important;
+  letter-spacing: 1px;
+}

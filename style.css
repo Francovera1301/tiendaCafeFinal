@@ -1,0 +1,809 @@
+/* Reseteo y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Puedes reemplazar por la fuente que prefieras */
+    color: #fff;
+    background-color: #333; /* Un color de fondo base */
+}
+
+
+
+/* Header styles */
+header {
+    background-color: #1a1a1a;
+    padding: 20px 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between; /* Puts space between the logo and the nav */
+    align-items: center; /* Vertically aligns items in the center */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 30px; /* Adjust the logo size as needed */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: 20px; /* Space between menu items */
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+header nav ul li a:hover {
+    opacity: 1;
+}
+
+/* Add a margin to the body to prevent content from being hidden by the fixed header */
+body {
+    padding-top: 100px; /* Adjust this value to match your header's height */
+}
+
+
+/* Estilos de la sección principal */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('imagenes/sidebar_cafe01.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-start; /* Alinea el contenido al inicio del contenedor (arriba) */
+    justify-content: flex-start;
+    padding-left: 10%;
+    padding-top: 15%; /* Ajuste para bajar el contenido */
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.content {
+    position: relative;
+    z-index: 5;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.content h1 {
+    font-size: 35px; /* Tamaño de fuente un poco más pequeño */
+    font-weight: normal;
+}
+
+.content h2 {
+    font-size: 65px; /* Tamaño de fuente un poco más pequeño */
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 5px; /* Reducimos el espacio entre los títulos */
+}
+
+.content p {
+    font-size: 15px; /* Fuente más pequeña */
+    line-height: 1.5;
+    max-width: 500px;
+    margin-top: 15px; /* Reducimos el espacio con los párrafos */
+}
+
+/* Estilos del botón */
+button {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 10px 25px; /* Padding más pequeño */
+    cursor: pointer;
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    font-weight: bold;
+    margin-top: 25px; /* Reducimos el margen superior */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Estilos de los puntos del carrusel */
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    z-index: 10;
+}
+
+.carousel-dots .dot {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 8px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.carousel-dots .dot.active {
+    opacity: 1;
+}
+/* Estilos para la sección de productos */
+.productos {
+    text-align: center;
+    padding: 80px 0;
+    background-color: #f7f7f7;
+}
+
+.productos h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+}
+
+.productos-dinamicos h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+}
+
+.linea-subtitulo {
+    width: 60px;
+    height: 3px;
+    background-color: #c49d47;
+    margin: 10px auto 40px;
+}
+
+.productos-carrusel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lista-productos {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    overflow-x: hidden;
+    gap: 20px;
+}
+
+.producto-card {
+    position: relative;
+    width: 250px;
+    text-align: center;
+    margin: 0 10px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.producto-card .imagen-frente {
+    position: relative;
+    width: 100%;
+    display: block;
+    backface-visibility: hidden;
+    transition: opacity 0.5s;
+}
+
+.producto-card .imagen-reverso {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: calc(100% - 40px);
+    opacity: 0;
+    backface-visibility: hidden;
+    transition: opacity 0.5s;
+}
+
+.producto-card:hover .imagen-frente {
+    opacity: 0;
+}
+
+.producto-card:hover .imagen-reverso {
+    opacity: 1;
+}
+
+.producto-card p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+    font-weight: bold;
+}
+
+.flecha {
+    cursor: pointer;
+    font-size: 30px;
+    color: #777;
+    margin: 0 15px;
+}
+
+/* Estilos para los rectángulos inferiores */
+.promos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 80px;
+    background-color: #fff;
+}
+
+.promo-card {
+    position: relative;
+    width: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.promo-card img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease-in-out;
+}
+
+.promo-card:hover img {
+    transform: scale(1.05); /* Efecto de zoom */
+}
+
+.promo-card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 20px;
+}
+
+.texto-promo {
+    color: #fff;
+    text-align: left;
+    max-width: 70%;
+}
+
+.subtitulo-promo {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.texto-promo h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.btn-ver {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.btn-ver:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Puntos de navegación inferiores */
+.carousel-dots-productos {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.carousel-dots-productos .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.carousel-dots-productos .dot.active {
+    background-color: #333;
+}
+
+/* Estilos para la sección de variedades de café */
+.variedades-cafe {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #f8f8f8;
+}
+
+.variedades-cafe .subtitulo {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.variedades-cafe h2 {
+    font-size: 40px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.separador-linea {
+    width: 60px;
+    height: 3px;
+    background-color: #c49d47;
+    margin: 10px auto 50px;
+}
+
+.contenido-variedades {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.columna-izquierda,
+.columna-derecha {
+    flex: 1;
+    text-align: left;
+}
+
+.columna-central {
+    flex: 1.2;
+    padding-top: 30px; /* Para alinear con el texto de las columnas laterales */
+}
+
+.columna-central img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tipo-cafe {
+    margin-bottom: 30px;
+}
+
+.tipo-cafe h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.tipo-cafe p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Estilos para la sección "Tienda Cerca Tuyo" */
+.tienda-cerca {
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Altura de la sección, ajusta según necesidad */
+    background-image: url('imagenes/home-tienda.jpg'); /* Reemplaza con la ruta a tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Opcional: efecto parallax para que la imagen no se mueva al hacer scroll */
+    filter: grayscale(100%); /* Convierte la imagen a blanco y negro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.tienda-cerca::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Capa oscura para que el texto resalte */
+}
+
+.contenido-tienda-cerca {
+    position: relative;
+    z-index: 2; /* Asegura que el contenido esté por encima de la capa oscura */
+}
+
+.contenido-tienda-cerca h2 {
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.contenido-tienda-cerca h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 3px;
+}
+
+.contenido-tienda-cerca p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.ingresar-btn {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 30px;
+    transition: background-color 0.3s;
+}
+
+.ingresar-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Estilos para el pie de página */
+.main-footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 60px 80px;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo h1 {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-right: 60px;
+}
+
+.footer-links {
+    margin-right: 40px;
+}
+
+.footer-links h4,
+.footer-suscribir h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #ccc;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #999;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #fff;
+}
+
+.footer-suscribir {
+    max-width: 350px;
+    text-align: right;
+}
+
+.footer-suscribir h4 {
+    text-align: left;
+}
+
+.footer-suscribir form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.footer-suscribir input {
+    padding: 12px;
+    background-color: transparent;
+    border: 1px solid #555;
+    color: #fff;
+    font-size: 14px;
+    width: 100%;
+}
+
+.footer-suscribir input::placeholder {
+    color: #777;
+}
+
+.footer-suscribir button {
+    background-color: #b38b6d;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.footer-suscribir button:hover {
+    background-color: #c49d47;
+}
+
+.social-links {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.social-links h5 {
+    font-size: 12px;
+    color: #ccc;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.social-links a img {
+    width: 25px;
+    margin-left: 10px;
+    transition: opacity 0.3s;
+}
+
+.social-links a:hover img {
+    opacity: 0.7;
+}
+
+
+  /* Fondo oscuro semitransparente */
+  .modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Contenedor de la card */
+  .modal-content {
+    background-color: #111; /* negro */
+    color: #d1a573; /* dorado/café */
+    padding: 30px 40px;
+    border-radius: 6px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    animation: aparecer 0.4s ease;
+  }
+
+  @keyframes aparecer {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .modal-content h2 {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  /* Campos del formulario */
+  #form-suscripcion input {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #000;
+    color: #fff;
+  }
+
+  #form-suscripcion button {
+    background: #d1a573;
+    border: none;
+    color: #000;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  #form-suscripcion button:hover {
+    background: #c29252;
+  }
+
+  /* Botón de cierre */
+  .cerrar {
+    position: absolute;
+    top: 8px; right: 14px;
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+  }
+
+  /*estilos para el contenedor de productos dinamicos 
+  .productos-dinamicos {
+    text-align: center;
+    padding: 40px;
+    background-color: #f5f5f5;
+  }
+  
+  .lista-dinamica {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .producto-card-dinamico {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 200px;
+    padding: 10px;
+    transition: transform 0.2s;
+  }
+  
+  .producto-card-dinamico:hover {
+    transform: scale(1.05);
+  }
+  
+  .producto-card-dinamico img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .producto-card-dinamico h3 {
+    color: #5a3e2b; 
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+  
+  .producto-card-dinamico p {
+    color: #333; 
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+  */
+  
+  .productos-dinamicos {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #fafafa;
+    position: relative;
+  }
+  
+  .carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+    max-width: 1600px; /* más ancho */
+    margin: 0 auto;
+  }
+  
+  .lista-dinamica {
+    display: flex;
+    gap: 45px; /* más espacio entre productos */
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .producto-card-dinamico {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    width: 260px; /* más anchas */
+    flex-shrink: 0;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .producto-card-dinamico:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .producto-card-dinamico img {
+    width: 100%;
+    height: 280px; /* más altas */
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  .producto-card-dinamico h3 {
+    color: #4b2e17; /* tono café oscuro */
+    font-size: 1.3em;
+    margin-top: 15px;
+    font-weight: 700;
+  }
+  
+  .producto-card-dinamico p {
+    color: #333;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  /* Flechas del carrusel */
+  .flecha {
+    background-color: rgba(90, 62, 43, 0.8);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  
+  .flecha:hover {
+    background-color: rgba(90, 62, 43, 1);
+  }
+  
+  .flecha-izquierda {
+    left: 10px;
+  }
+  
+  .flecha-derecha {
+    right: 10px;
+  }
+  

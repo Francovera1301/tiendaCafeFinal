@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Administración - Tienda de Café</title>
+  <link rel="stylesheet" href="estilos.css" />
+  <style>
+    body {
+      background-color: #1c1b19;
+      color: #f5f5f5;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    form {
+      background-color: #2e2c29;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      width: 400px;
+      
+      margin: 0 auto;
+    }
+    form input {
+      display: block;
+      margin: 8px 0;
+      width: 95%;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+    }
+    form button {
+      background-color: #d4a056;
+      color: #fff;
+      border: none;
+      padding: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    .productos-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .producto-card {
+      background-color: #2e2c29;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .producto-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .botones {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-around;
+    }
+    .botones button {
+      background-color: #d4a056;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .botones button.eliminar {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <h1>Panel de Administración</h1>
+
+  <form id="formProducto" enctype="multipart/form-data">
+    <h3>Agregar / Editar Producto</h3>
+    <input type="hidden" id="productoId" />
+    <input type="text" id="nombre" placeholder="Nombre del producto" required />
+    <input type="number" id="precio" placeholder="Precio" required />
+    <input type="file" id="imagen" name="imagen" accept="image/*" />
+    <button type="submit">Guardar</button>
+  </form>
+
+
+  <h2 style="text-align:center; margin-top: 40px;">Lista de Productos</h2>
+  <div class="productos-container" id="productosContainer"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
