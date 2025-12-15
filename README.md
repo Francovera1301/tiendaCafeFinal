@@ -1,54 +1,96 @@
-🧾 Proyecto: Tienda Café ☕
-📋 Descripción
+        ☕ Proyecto: Tienda Café
+Una aplicación web completa para una tienda de café. Incluye una vista para clientes (catálogo dinámico, carrito, suscripción) y un panel de administración protegido para gestionar el inventario.
 
-Se realizo una aplicación web simple con gestión por medio de un rol administrador el cual se valida con la base de datos.
-Permite iniciar sesión con un usuario registrado en la BD y acceder al panel admin para realizar un CRUD con la base de datos.}
-También guarda los en la base de datos el formulación modal de susbcripcion y el del footer.
+📋 Características Principales
 
-Aun se encuentra en proceso de pruebas por lo que las productos dinámicos que se cargan por el admin solo aparecen en localhost:3000
+🛒 Catálogo Dinámico: Los productos se cargan desde la base de datos MySQL.
+🔒 Panel de Administración: Sistema de login seguro para gestionar productos.
+✏️ CRUD Completo: Crear, Leer, Actualizar y Borrar productos (incluyendo subida de imágenes).
+📧 Suscripciones: Captura de leads (emails) guardados en base de datos.
+📂 Arquitectura MVC: Proyecto estructurado con separación de Frontend (public) y Backend.
 
-⚙️ Requisitos previos
+⚙️ Requisitos Previos
+Antes de comenzar, asegúrate de tener instalado en tu PC:
 
-Antes de empezar, asegurate de tener instalado: Node.js / MySQL / npm
+Node.js (Versión 14 o superior).
+XAMPP (O cualquier servidor MySQL).
+Git (Para clonar el repositorio).
+Navegador Web (Chrome, Edge, Firefox).
 
-🗄️ Base de datos
+🚀 Guía de Instalación Paso a Paso
+Sigue estos pasos para levantar el proyecto desde cero en tu máquina local.
 
-Abrí MySQL phpMyAdmin.
+1. Clonar el Repositorio
+Abre tu terminal y ejecuta:
+git clone https://github.com/Francovera1301/tiendaCafeFinal.git
+cd tiendaCafeFinal
+2. Instalar Dependencias
+El proyecto necesita librerías como express, mysql2 y multer. Instálalas automáticamente con:
+npm install
+(Esto creará la carpeta node_modules).
 
-Creá una base de datos llamada: CREATE DATABASE tienda_cafe;
+3. Configurar la Base de Datos 🗄️
+Este paso es crítico. El servidor necesita dónde guardar los datos.
+Abre XAMPP y enciende los módulos Apache y MySQL.
+Ve a tu navegador y entra a: http://localhost/phpmyadmin.
 
-Importá el archivo SQL incluido (tienda_cafe.sql) 
+Crea una nueva base de datos llamada: tienda_cafe.
+Selecciona la base de datos creada e ve a la pestaña Importar.
+Selecciona el archivo tienda_cafe.sql que se encuentra en la carpeta raíz de este proyecto.
+Dale a "Continuar" para crear las tablas (usuarios, productos, suscripciones).
 
-📦 Instalación de dependencias
+4. Verificar Conexión (Opcional)
+Abre el archivo server.js y asegúrate de que las credenciales coincidan con las de tu XAMPP (por defecto suelen ser estas):
 
-Descargá la carpeta. Abrí una terminal dentro del proyecto.
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root",       // Usuario por defecto de XAMPP
+  password: "",       // Contraseña vacía por defecto
+  database: "tienda_cafe",
+});
 
-Instalá las dependencias:  npm install express mysql cors body-parser
+5. Ejecutar el Servidor
+⚠️ Importante: No uses "Live Server". Este proyecto requiere Node.js para funcionar.
+En la terminal, dentro de la carpeta del proyecto, ejecuta: node server.js
+Deberías ver el mensaje:
+Servidor en http://localhost:3000 
+Conectado a MySQL
 
-📁 Estructura del proyecto
-📦 No se penso en el orden (pasarlo por alto)
+📖 Modo de Uso
+Abre tu navegador y visita: http://localhost:3000
 
-🚀 Ejecución del proyecto
+👤 Acceso al Panel Admin
+Para gestionar los productos, ve a /login.html o haz clic en "Ingresar" (si tienes el botón).
 
-En la terminal, ejecutá:  node server.js
+Usuario: admin@cafe.com
+Contraseña: admin1234
 
-Abrí el navegador y entrá en:  http://localhost:3000/login.html
+Una vez dentro, podrás:
 
-Iniciá sesión con:   Usuario: admin@cafe.com   Contraseña: admin1234
+Agregar nuevos cafés con foto. Editar precios y nombres. Eliminar productos.
+(Los cambios se reflejarán automáticamente en la página de inicio).
 
-Si el login es correcto, serás redirigido a admin.html, donde podrás gestionar los productos.
+📂 Estructura del Proyecto
+El proyecto ha sido refactorizado para mantener el orden:
 
-🧠 Funcionamiento básico
+TIENDA_CAFE_VERA/
+├── 📂 public/           # FRONTEND (Lo que ve el cliente)
+│   ├── 📂 css/          # Hojas de estilo
+│   ├── 📂 js/           # Scripts del navegador (DOM, Fetch)
+│   ├── 📂 imagenes/     # Imágenes estáticas del sitio
+│   └── *.html           # Vistas (index, login, admin, etc.)
+├── 📂 uploads/          # Imágenes subidas dinámicamente por el Admin
+├── 📂 node_modules/     # Librerías (No tocar)
+├── server.js            # BACKEND (Lógica del servidor y rutas API)
+├── tienda_cafe.sql      # Copia de seguridad de la Base de Datos
+└── package.json         # Configuración del proyecto
 
-login.html → formulario que envía email y contraseña al servidor.
+🛠️ Tecnologías Utilizadas
+Frontend: HTML5, CSS3, JavaScript (Vanilla).
+Backend: Node.js, Express.
+Base de Datos: MySQL.
 
-server.js → valida el usuario en MySQL y devuelve respuesta JSON.
-
-admin.html → muestra los productos y permite agregar, editar y eliminar. (se utilizo multer para cargar archivos descargados en la pc)
-
-El CRUD se conecta al backend mediante fetch() y actualiza la base de datos en tiempo real.
+Imágenes: Multer (Middleware de carga de archivos).
 
 🧑‍💻 Autor
-
-Franco Vera
-Proyecto académico y de práctica con Node.js + MySQL + HTML/CSS/JS.
+Franco Vera Proyecto académico de Programación Web.
