@@ -120,7 +120,27 @@ app.post("/login", (req, res) => {
   });
 });
 
+// ==========================================
+// NUEVA RUTA: Suscripciones
+// ==========================================
+app.post("/api/suscribirse", (req, res) => {
+  const { nombre, email } = req.body;
 
+  // 1. Validar datos
+  if (!nombre || !email) {
+    return res.status(400).json({ success: false, message: "Faltan datos" });
+  }
+
+  // 2. Insertar en BD
+  const sql = "INSERT INTO suscripciones (nombre, email) VALUES (?, ?)";
+  db.query(sql, [nombre, email], (err, result) => {
+    if (err) {
+      console.error("Error MySQL:", err);
+      return res.status(500).json({ success: false, message: "Error al guardar" });
+    }
+    res.json({ success: true, message: "¡Suscripción exitosa!" });
+  });
+});
 
 
 // Ruta para mostrar el login

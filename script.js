@@ -57,13 +57,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (data.success) {
-          msg.textContent = "✅ ¡Gracias por suscribirte!";
+          // 1. Mostrar el mensaje
+          msg.textContent = "✅ ¡Suscripción exitosa! Gracias por unirte.";
           msg.style.color = "green";
           form.reset();
 
-          // Si el formulario está dentro del modal, lo cerramos
+          // 2. Si es el modal, esperar 2 segundos (2000ms) antes de cerrar
           const modal = form.closest('#modal-suscripcion');
-          if (modal) modal.style.display = 'none';
+          if (modal) {
+            setTimeout(() => {
+              modal.style.display = 'none';
+              msg.textContent = ""; // Opcional: Borra el texto para que no salga la próxima vez
+            }, 2000); 
+          }
+          
         } else {
           msg.textContent = "❌ Hubo un problema. Intenta nuevamente.";
           msg.style.color = "red";
