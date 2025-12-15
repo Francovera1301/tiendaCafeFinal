@@ -86,7 +86,7 @@ TIENDA_CAFE_VERA/
 └── package.json         # Configuración del proyecto
 
 🛠️ Tecnologías Utilizadas
-Frontend: HTML5, CSS3, JavaScript (Vanilla).
+Frontend: HTML5, CSS3, JavaScript.
 Backend: Node.js, Express.
 Base de Datos: MySQL.
 
